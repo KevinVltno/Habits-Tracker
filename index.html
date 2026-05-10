@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Habits Tracker</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+</head>
+<body>
+<div class="container">
+
+  <div class="top-bar">
+    <div>
+      <h1>Habits Tracker</h1>
+      <p id="today-disp"></p>
+    </div>
+  </div>
+
+  <div class="add-row">
+    <input type="text" id="habit-input" placeholder="Tambah kebiasaan baru..." maxlength="50" />
+    <button id="btn-tambah"><i class="ti ti-plus"></i> Tambah</button>
+  </div>
+
+  <div class="view-toggle-row">
+    <button class="view-btn active" id="btn-view-today"><i class="ti ti-check"></i> Hari Ini</button>
+    <button class="view-btn" id="btn-view-calendar"><i class="ti ti-calendar"></i> Kalender</button>
+  </div>
+
+  <!-- TODAY VIEW -->
+  <div id="today-view">
+    <div class="today-header-row">
+      <div class="section-label" style="margin-bottom:0">Kebiasaan hari ini</div>
+      <button class="mark-all-btn" id="btn-mark-all"><i class="ti ti-checks"></i> Tandai Semua</button>
+    </div>
+    <div id="today-list"></div>
+  </div>
+
+  <!-- CALENDAR VIEW -->
+  <div id="calendar-view" style="display:none">
+    <div class="cal-nav">
+      <button class="nav-btn" id="btn-prev"><i class="ti ti-chevron-left"></i></button>
+      <span id="cal-month-label" class="cal-month"></span>
+      <button class="nav-btn" id="btn-next"><i class="ti ti-chevron-right"></i></button>
+    </div>
+    <div class="section-label">Kebiasaan</div>
+    <div id="habits-list"></div>
+  </div>
+
+  <div class="section-label" style="margin-top:2rem">Ringkasan bulan ini</div>
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-label">Total selesai</div><div class="stat-val" id="stat-done">0</div></div>
+    <div class="stat-card"><div class="stat-label">Streak terbaik</div><div class="stat-val" id="stat-streak">0</div></div>
+    <div class="stat-card"><div class="stat-label">Tingkat sukses</div><div class="stat-val" id="stat-rate">0%</div></div>
+  </div>
+
+  <div class="section-label" style="margin-top:2rem">Grafik tahunan</div>
+  <div class="year-nav">
+    <button class="nav-btn" id="btn-year-prev"><i class="ti ti-chevron-left"></i></button>
+    <span id="year-label" class="cal-month"></span>
+    <button class="nav-btn" id="btn-year-next"><i class="ti ti-chevron-right"></i></button>
+  </div>
+  <div class="chart-select-wrap">
+    <label for="chart-habit-select">Kebiasaan:</label>
+    <select id="chart-habit-select"></select>
+  </div>
+  <div class="chart-area">
+    <div class="chart-wrap">
+      <canvas id="chart-annual" role="img" aria-label="Grafik jumlah hari selesai per bulan dalam setahun">Data kebiasaan per bulan.</canvas>
+    </div>
+  </div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
